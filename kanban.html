@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+	<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+	<meta name="apple-mobile-web-app-title" content="CodePen">
+  	<title>4jo-Kanban</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css'>
+  
+	<link rel="stylesheet" href="kanban_style.css">
+
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+</head>
+
+<body translate="no" >
+  <header>
+  <h1>Siga 4-Jo<br/><span>Kanban Board ⏰</span></h1>
+  </header>
+
+<div class="add-task-container">
+  <input type="text" maxlength="12" id="taskText" placeholder="new tesk" onkeydown="if (event.keyCode == 13)
+                        document.getElementById('add').click()">
+  <button id="add" class="button add-button" onclick="addTask()">할일 추가</button>
+</div>
+
+<div class="main-container">
+  <ul class="columns">
+
+    <li class="column to-do-column">
+      <div class="column-header">
+        <h4>To Do</h4>
+      </div>
+      <ul class="task-list" id="to-do">
+        <li class="task">
+          <p>밥먹기</p>
+        </li>
+        <li class="task">
+          <p>잠자기</p>
+        </li>
+        <li class="task">
+          <p>놀기</p>
+        </li>
+      </ul>
+    </li>
+
+    <li class="column doing-column">
+      <div class="column-header">
+        <h4>Doing</h4>
+      </div>
+      <ul class="task-list" id="doing">
+        <li class="task">
+          <p>코딩</p>
+        </li>
+        <li class="task">
+          <p>과제</p>
+        </li>
+      </ul>
+    </li>
+
+    <li class="column done-column">
+      <div class="column-header">
+        <h4>Done</h4>
+      </div>
+      <ul class="task-list" id="done">
+        <li class="task">
+          <p>학원가기</p>
+        </li>
+      </ul>
+    </li>
+
+    <li class="column trash-column">
+      <div class="column-header">
+        <h4>Trash</h4>
+      </div>
+      <ul class="task-list" id="trash">
+        <li class="task">
+          <p>운동하기</p>
+        </li>
+        <li class="task">
+          <p>책읽기</p>
+        </li>
+
+      </ul>
+      <div class="column-button">
+        <button class="button delete-button" onclick="emptyTrash()">비우기</button>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<footer>
+  <p>⛏ HAPPY 4JO ⛏</p>
+</footer>
+
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js'></script>
+<script src="kanban_script.js" defer></script>
+<!-- <script id="rendered-js" >
+/* Custom Dragula JS */
+dragula([
+document.getElementById("to-do"),
+document.getElementById("doing"),
+document.getElementById("done"),
+document.getElementById("trash")]);
+
+removeOnSpill: false.
+on("drag", function (el) {
+  el.className.replace("ex-moved", "");
+}).
+on("drop", function (el) {
+  el.className += "ex-moved";
+}).
+on("over", function (el, container) {
+  container.className += "ex-over";
+}).
+on("out", function (el, container) {
+  container.className.replace("ex-over", "");
+});
+
+/* Vanilla JS to add a new task */
+function addTask() {
+  /* Get task text from input */
+  var inputTask = document.getElementById("taskText").value;
+  /* Add task to the 'To Do' column */
+  document.getElementById("to-do").innerHTML +=
+  "<li class='task'><p>" + inputTask + "</p></li>";
+  /* Clear task text from input after adding task */
+  document.getElementById("taskText").value = "";
+}
+
+/* Vanilla JS to delete tasks in 'Trash' column */
+function emptyTrash() {
+  /* Clear tasks from 'Trash' column */
+  document.getElementById("trash").innerHTML = "";
+}
+//# sourceURL=pen.js
+    </script> -->
+
+</body>
+</html>
+ 
